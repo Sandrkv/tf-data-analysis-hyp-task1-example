@@ -12,7 +12,5 @@ def solution(x_success: int,
     alpha = 0.07
     z_stat, p_value = proportions_ztest([x_success, y_success], [x_cnt, y_cnt], value=0, alternative='smaller')
     z_crit = np.abs(norm.ppf(alpha))
-    if z_stat < -z_crit:
-        return True
-    else:
-        return False
+    return z_stat > z_crit
+          
